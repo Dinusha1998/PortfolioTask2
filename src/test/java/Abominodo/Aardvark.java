@@ -831,20 +831,22 @@ public class Aardvark {
   }
 
   private void recordTheScore() {
-    try {
-      PrintWriter pw = new PrintWriter(new FileWriter("score.txt", true));
-      String n = playerName.replaceAll(",", "_");
-      pw.print(n);
-      pw.print(",");
-      pw.print(score);
-      pw.print(",");
-      pw.println(System.currentTimeMillis());
-      pw.flush();
-      pw.close();
-    } catch (Exception e) {
-      System.out.println("Something went wrong saving scores");
-    }
-  }
+	    try {
+	        String n = playerName.replaceAll(",", "_");
+	        String scoreData = n + "," + score + "," + System.currentTimeMillis();
+	        writeScoreToFile(scoreData);
+	    } catch (Exception e) {
+	        System.out.println("Something went wrong saving scores");
+	    }
+	}
+
+	private void writeScoreToFile(String scoreData) throws IOException {
+	    PrintWriter pw = new PrintWriter(new FileWriter("score.txt", true));
+	    pw.println(scoreData);
+	    pw.flush();
+	    pw.close();
+	}
+
 
   public static void main(String[] args) {
     new Aardvark().run();
