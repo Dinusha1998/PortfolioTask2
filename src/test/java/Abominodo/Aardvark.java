@@ -752,26 +752,40 @@ public class Aardvark {
 
         File f = new File("score.txt");
         if (!(f.exists() && f.isFile() && f.canRead())) {
-          System.out.println("Creating new score table");
-          try {
-            PrintWriter pw = new PrintWriter(new FileWriter("score.txt", true));
-            String n = playerName.replaceAll(",", "_");
-            pw.print("Hugh Jass");
-            pw.print(",");
-            pw.print(1500);
-            pw.print(",");
-            pw.println(1281625395123L);
-            pw.print("Ivana Tinkle");
-            pw.print(",");
-            pw.print(1100);
-            pw.print(",");
-            pw.println(1281625395123L);
-            pw.flush();
-            pw.close();
-          } catch (Exception e) {
-            System.out.println("Something went wrong saving scores");
-          }
+            System.out.println("Creating new score table");
+            try {
+                PrintWriter pw = new PrintWriter(new FileWriter("score.txt", true));
+                String n = playerName.replaceAll(",", "_");
+
+                // Sample player 1 data
+                String player1Name = "Hugh Jass";
+                int player1Score = 1500;
+                long player1Timestamp = 1281625395123L;
+
+                // Sample player 2 data
+                String player2Name = "Ivana Tinkle";
+                int player2Score = 1100;
+                long player2Timestamp = 1281625395123L;
+
+                // Writing player data to file
+                pw.print(player1Name);
+                pw.print(",");
+                pw.print(player1Score);
+                pw.print(",");
+                pw.println(player1Timestamp);
+                pw.print(player2Name);
+                pw.print(",");
+                pw.print(player2Score);
+                pw.print(",");
+                pw.println(player2Timestamp);
+
+                pw.flush();
+                pw.close();
+            } catch (Exception e) {
+                System.out.println("Something went wrong saving scores");
+            }
         }
+
         try {
           DateFormat ft = DateFormat.getDateInstance(DateFormat.LONG);
           BufferedReader r = new BufferedReader(new FileReader(f));
