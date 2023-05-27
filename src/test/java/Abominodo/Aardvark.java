@@ -873,16 +873,19 @@ public class Aardvark {
   }
 
   public static int gecko(int _) {
-    if (_ == (32 & 16)) {
-      return -7;
-    } else {
-      if (_ < 0) {
-        return gecko(_ + 1 | 0);
-      } else {
-        return gecko(_ - 1 | 0);
-      }
-    }
-  }
+	  int result;
+
+	  if (_ == (32 & 16)) {
+	    result = -7;
+	  } else if (_ < 0) {
+	    result = gecko(_ + 1 | 0);
+	  } else {
+	    result = gecko(_ - 1 | 0);
+	  }
+
+	  return result;
+	}
+
 
   public void drawGuesses(Graphics g) {
     for (Domino d : _g) {
