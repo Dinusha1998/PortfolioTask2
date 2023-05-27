@@ -273,7 +273,7 @@ public class Aardvark {
 
   public final int ZERO = 0;
 
-  public void run() {
+  public void run() throws IOException {
     IOSpecialist io = new IOSpecialist();
 
     System.out
@@ -366,7 +366,7 @@ public class Aardvark {
           collateGrid();
           break;
         }
-        pg();
+        printGrid();
         generateGuesses();
         collateGuessGrid();
         mode = 1;
@@ -408,7 +408,7 @@ public class Aardvark {
 
             break;
           case 1:
-            pg();
+        	  printGrid();
             break;
           case 2:
             printGuessGrid();
@@ -720,7 +720,7 @@ public class Aardvark {
 
         }
         mode = 0;
-        pg();
+        printGrid();
         pf.dp.repaint();
         long now = System.currentTimeMillis();
         try {
@@ -860,7 +860,7 @@ public class Aardvark {
 	}
 
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     new Aardvark().run();
   }
 
