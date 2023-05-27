@@ -212,14 +212,12 @@ public class Aardvark {
   }
 
   private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
-    Domino e = findDominoAt(x + 1, y);
-    return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
-  }
+	    return thisIsTopLeftOfDomino(x + 1, y, findDominoAt(x + 1, y)) && !findDominoAt(x + 1, y).ishl();
+	}
 
   private boolean theCellBelowIsTopLeftOfHorizontalDomino(int x, int y) {
-    Domino e = findDominoAt(x, y + 1);
-    return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishl();
-  }
+	    return thisIsTopLeftOfDomino(x, y + 1, findDominoAt(x, y + 1)) && findDominoAt(x, y + 1).ishl();
+	}
 
   private boolean thisIsTopLeftOfDomino(int x, int y, Domino d) {
     return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
