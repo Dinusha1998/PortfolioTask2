@@ -3,15 +3,15 @@ import java.io.*;
 import java.net.*;
 
 public final class IOLibrary {
-  public static String getString() {
-    BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-    do {
-      try {
-        return r.readLine();
-      } catch (Exception e) {
-      }
-    } while (true);
-  }
+	public static String getString() throws IOException {
+	    BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+	    try {
+	        return r.readLine();
+	    } catch (IOException e) {
+	        throw new IOException("Error reading input.", e);
+	    }
+	}
+
 
   public static InetAddress getIPAddress() {
     BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
