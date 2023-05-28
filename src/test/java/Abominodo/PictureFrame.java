@@ -96,32 +96,29 @@ public class PictureFrame {
     }
 
     protected void paintComponent(Graphics g) {
-      g.setColor(Color.YELLOW);
-      g.fillRect(0, 0, getWidth(), getHeight());
+    	  g.setColor(Color.YELLOW);
+    	  g.fillRect(0, 0, getWidth(), getHeight());
+    	  
+    	  if (master.mode == 1) {
+    	    drawMode1(g);
+    	  } else if (master.mode == 0) {
+    	    drawMode0(g);
+    	  }
+    	}
 
-      // numbaz(g);
-      //
-      // if (master!=null && master.orig != null) {
-      // drawRoll(g, master.orig);
-      // }
-      // if (reroll != null) {
-      // drawReroll(g, reroll);
-      // }
-      //
-      // drawGrid(g);
-      if (master.mode == 1) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
-        master.drawGuesses(g);
-      }
-      if (master.mode == 0) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
-        master.drawDominoes(g);
-      }
-    }
+    	private void drawMode1(Graphics g) {
+    	  drawGridLines(g);
+    	  drawHeadings(g);
+    	  drawGrid(g);
+    	  master.drawGuesses(g);
+    	}
+
+    	private void drawMode0(Graphics g) {
+    	  drawGridLines(g);
+    	  drawHeadings(g);
+    	  drawGrid(g);
+    	  master.drawDominoes(g);
+    	}
 
     public Dimension getPreferredSize() {
       return new Dimension(202, 182);
