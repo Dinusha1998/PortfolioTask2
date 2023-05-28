@@ -339,33 +339,29 @@ public class Aardvark {
             c2 = -7;
           }
         }
+        generateDominoes();
+        shuffleDominoesOrder();
+        placeDominoes();
+
         switch (c2) {
-        case 1:
-          generateDominoes();
-          shuffleDominoesOrder();
-          placeDominoes();
-          collateGrid();
-          // printGrid();
-          break;
-        case 2:
-          generateDominoes();
-          shuffleDominoesOrder();
-          placeDominoes();
-          rotateDominoes();
-          collateGrid();
-          // printGrid();
-          break;
-        default:
-          generateDominoes();
-          shuffleDominoesOrder();
-          placeDominoes();
-          rotateDominoes();
-          rotateDominoes();
-          rotateDominoes();
-          invertSomeDominoes();
-          collateGrid();
-          break;
+          case 1:
+            collateGrid();
+            // printGrid();
+            break;
+          case 2:
+            rotateDominoes();
+            collateGrid();
+            // printGrid();
+            break;
+          default:
+            rotateDominoes();
+            rotateDominoes();
+            rotateDominoes();
+            invertSomeDominoes();
+            collateGrid();
+            break;
         }
+
         printGrid();
         generateGuesses();
         collateGuessGrid();
