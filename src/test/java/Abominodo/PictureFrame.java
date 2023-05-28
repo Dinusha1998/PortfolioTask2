@@ -18,16 +18,25 @@ public class PictureFrame {
         }
       }
     }
-
+    
     public void drawGridLines(Graphics g) {
-      g.setColor(Color.LIGHT_GRAY);
-      for (int are = 0; are <= 7; are++) {
-        g.drawLine(20, 20 + are * 20, 180, 20 + are * 20);
-      }
-      for (int see = 0; see <= 8; see++) {
-        g.drawLine(20 + see * 20, 20, 20 + see * 20, 160);
-      }
-    }
+    	  g.setColor(Color.LIGHT_GRAY);
+    	  int startX = 20;
+    	  int startY = 20;
+    	  int endX = 180;
+    	  int endY = 160;
+    	  int cellSize = 20;
+
+    	  for (int are = 0; are <= 7; are++) {
+    	    int lineY = startY + are * cellSize;
+    	    g.drawLine(startX, lineY, endX, lineY);
+    	  }
+
+    	  for (int see = 0; see <= 8; see++) {
+    	    int lineX = startX + see * cellSize;
+    	    g.drawLine(lineX, startY, lineX, endY);
+    	  }
+    	}
 
     public void drawHeadings(Graphics g) {
       for (int are = 0; are < 7; are++) {
