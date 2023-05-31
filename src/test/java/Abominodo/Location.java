@@ -18,10 +18,13 @@ public class Location extends SpacePlace {
   }
   
   public String toString() {
-    if(d==null){
-      return "(" + (c+1) + "," + (r+1) + ")";
-    } else {
-      return "(" + (c+1) + "," + (r+1) + "," + d + ")";
-    }
-  }
+	    String result = "(" + (c+1) + "," + (r+1);
+
+	    if (d != null) {
+	        result += "," + d;
+	    }
+
+	    return result + ")";
+	}
+
 }
